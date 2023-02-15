@@ -1,0 +1,37 @@
+[tool.poetry]
+name = "aclpy"
+version = "0.1.0"
+description = ""
+authors = ["Masaki Kobayashi <bayashi.cl@gmail.com>"]
+readme = "README.md"
+packages = [{include = "atcoder", from = "src"}]
+
+[tool.poetry.dependencies]
+python = "^3.11"
+pybind11 = "^2.10.3"
+
+[tool.poetry.group.dev.dependencies]
+pyproject-flake8 = "^6.0.0.post1"
+isort = "^5.12.0"
+mypy = "^1.0.0"
+black = "^23.1.0"
+
+[tool.poetry.build]
+script = "build.py"
+
+[tool.black]
+target-version = ["py311"]
+line-length = 120
+
+[tool.isort]
+profile = "black"
+
+[tool.flake8]
+ignore = ["E741"]
+per-file-ignores = ["*.pyi:E301,E302,E305,E501,E704"]
+
+[tool.mypy]
+
+[build-system]
+requires = ["poetry-core", "setuptools", "pybind11"]
+build-backend = "poetry.core.masonry.api"
