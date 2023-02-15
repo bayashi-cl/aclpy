@@ -6,6 +6,7 @@ authors = ["Masaki Kobayashi <bayashi.cl@gmail.com>"]
 readme = "README.md"
 packages = [{include = "atcoder", from = "src"}]
 license = "CC0"
+build = "build.py"
 
 [tool.poetry.dependencies]
 python = "^3.11"
@@ -16,9 +17,6 @@ pyproject-flake8 = "^6.0.0.post1"
 isort = "^5.12.0"
 mypy = "^1.0.0"
 black = "^23.1.0"
-
-[tool.poetry.build]
-script = "build.py"
 
 [tool.black]
 target-version = ["py311"]
@@ -34,5 +32,5 @@ per-file-ignores = ["*.pyi:E301,E302,E305,E501,E704"]
 [tool.mypy]
 
 [build-system]
-requires = ["poetry-core", "setuptools", "pybind11"]
-build-backend = "poetry.core.masonry.api"
+requires = ["poetry", "setuptools", "pybind11"]
+build-backend = "poetry.masonry.api"
