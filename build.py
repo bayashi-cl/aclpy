@@ -1,5 +1,5 @@
-# from glob import glob
 import pathlib
+
 from pybind11.setup_helpers import Pybind11Extension, build_ext
 
 
