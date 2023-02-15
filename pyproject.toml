@@ -5,6 +5,7 @@ description = ""
 authors = ["Masaki Kobayashi <bayashi.cl@gmail.com>"]
 readme = "README.md"
 packages = [{include = "atcoder", from = "src"}]
+license = "CC0"
 
 [tool.poetry.dependencies]
 python = "^3.11"
