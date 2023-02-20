@@ -134,5 +134,7 @@ PYBIND11_MODULE(segtree, m) {
         .def("max_right", &atcoder::segtree::max_right, py::arg("l"),
              py::arg("f"))
         .def("min_left", &atcoder::segtree::min_left, py::arg("r"),
-             py::arg("f"));
+             py::arg("f"))
+        /* Workaround to make it look as if it is a Generic class.*/
+        .def("__class_getitem__", [](py::object) -> void {});
 }

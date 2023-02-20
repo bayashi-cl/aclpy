@@ -205,11 +205,15 @@ PYBIND11_MODULE(lazysegtree, m) {
         .def(py::init<const std::function<S(S, S)>&, const std::function<S()>&,
                       const std::function<F(F, S)>&,
                       const std::function<F(F, F)>&, const std::function<F()>&,
-                      int>())
+                      int>(),
+             py::arg("op"), py::arg("e"), py::arg("mapping"),
+             py::arg("composition"), py::arg("id"), py::arg("n") = 0)
         .def(py::init<const std::function<S(S, S)>&, const std::function<S()>&,
                       const std::function<F(F, S)>&,
                       const std::function<F(F, F)>&, const std::function<F()>&,
-                      const std::vector<S>&>())
+                      const std::vector<S>&>(),
+             py::arg("op"), py::arg("e"), py::arg("mapping"),
+             py::arg("composition"), py::arg("id"), py::arg("v"))
         .def("set", &atcoder::lazysegtree<S, F>::set, py::arg("p"),
              py::arg("x"))
         .def("get", &atcoder::lazysegtree<S, F>::get, py::arg("p"))
@@ -225,5 +229,7 @@ PYBIND11_MODULE(lazysegtree, m) {
         .def("max_right", &atcoder::lazysegtree<S, F>::max_right, py::arg("l"),
              py::arg("g"))
         .def("min_left", &atcoder::lazysegtree<S, F>::min_left, py::arg("r"),
-             py::arg("g"));
+             py::arg("g"))
+        /* Workaround to make it look as if it is a Generic class.*/
+        .def("__class_getitem__", [](py::object) -> void {});
 }
