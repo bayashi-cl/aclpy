@@ -12,6 +12,7 @@ def build(setup_kwargs):
                 [str(path)],
                 include_dirs=["ac-library"],
                 extra_compile_args=["-std=c++14"],
+                undef_macros=["NDEBUG"],
             )
         )
 
